@@ -31,8 +31,6 @@ spec:
               memory: "512Mi"
               cpu: "200m"
           volumeMounts:
-            - name: configvol
-              mountPath: /var/config
             - name: secretvol
               mountPath: /var/secret
             - name: datavol

@@ -26,7 +26,12 @@ W tym ćwiczeniu wdrożysz testowy projekt ["OSToy"](https://github.com/openshif
 
 1. Powtórz operację klikukrotnie (np. 3-4 razy) i zobacz jak zachowuje się OpenShift.
 
-## 2. Sprawdź w jaki sposób OpenShift zareaguje na brak odpowiedzi na Liveness Probe
+## 2. Sprawdź w jaki sposób zdefiniowany został Liveness Probe
+
+1. Sprawdź w jaki sposób zdefiniowany jest w YAML z lab 02
+1. Sprawdź w jaki sposób zdefiniowany jest w YAML w OpenShift
+
+## 3. Sprawdź w jaki sposób OpenShift zareaguje na brak odpowiedzi na Liveness Probe
 
 1. Otwórz okno przeglądarki z OpenShift obok okna przeglądarki z widokiem aplikacji.
 1. W OpenShift wybierz perspektywę Administratora, przejdź do _Deployments_ i wyświetl Deployment dla `ostoy-frontend`.
