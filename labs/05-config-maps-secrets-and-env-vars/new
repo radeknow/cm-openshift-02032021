@@ -1,0 +1,269 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: '2'
+    kubectl.kubernetes.io/last-applied-configuration: >
+      {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"labels":{"app":"ostoy"},"name":"ostoy-frontend","namespace":"cmstudent6-ostoy"},"spec":{"replicas":1,"selector":{"matchLabels":{"app":"ostoy-frontend"}},"strategy":{"type":"Recreate"},"template":{"metadata":{"labels":{"app":"ostoy-frontend"}},"spec":{"containers":[{"env":[{"name":"ENV_TOY_SECRET","valueFrom":{"secretKeyRef":{"key":"ENV_TOY_SECRET","name":"ostoy-secret-env"}}},{"name":"MICROSERVICE_NAME","value":"OSTOY_MICROSERVICE_SVC"}],"image":"quay.io/ostoylab/ostoy-frontend:1.4.0","imagePullPolicy":"IfNotPresent","livenessProbe":{"httpGet":{"path":"/health","port":8080},"initialDelaySeconds":10,"periodSeconds":5},"name":"ostoy-frontend","ports":[{"containerPort":8080,"name":"ostoy-port"}],"resources":{"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"100m","memory":"256Mi"}},"volumeMounts":[{"mountPath":"/var/secret","name":"secretvol"},{"mountPath":"/var/demo_files","name":"datavol"}]}],"volumes":[{"name":"secretvol","secret":{"defaultMode":420,"secretName":"ostoy-secret"}},{"name":"datavol","persistentVolumeClaim":{"claimName":"ostoy-pvc"}}]}}}}
+  selfLink: /apis/apps/v1/namespaces/cmstudent6-ostoy/deployments/ostoy-frontend
+  resourceVersion: '1339431'
+  name: ostoy-frontend
+  uid: 4221bcac-4ae3-4b1b-886e-2f3966949332
+  creationTimestamp: '2021-03-02T11:51:27Z'
+  generation: 10
+  managedFields:
+    - manager: kubectl-client-side-apply
+      operation: Update
+      apiVersion: apps/v1
+      time: '2021-03-02T11:51:27Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:kubectl.kubernetes.io/last-applied-configuration': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+        'f:spec':
+          'f:progressDeadlineSeconds': {}
+          'f:revisionHistoryLimit': {}
+          'f:selector':
+            'f:matchLabels':
+              .: {}
+              'f:app': {}
+          'f:strategy':
+            'f:type': {}
+          'f:template':
+            'f:metadata':
+              'f:labels':
+                .: {}
+                'f:app': {}
+            'f:spec':
+              'f:containers':
+                'k:{"name":"ostoy-frontend"}':
+                  'f:image': {}
+                  'f:volumeMounts':
+                    .: {}
+                    'k:{"mountPath":"/var/demo_files"}':
+                      .: {}
+                      'f:mountPath': {}
+                      'f:name': {}
+                    'k:{"mountPath":"/var/secret"}':
+                      .: {}
+                      'f:mountPath': {}
+                      'f:name': {}
+                  'f:terminationMessagePolicy': {}
+                  .: {}
+                  'f:resources':
+                    .: {}
+                    'f:limits':
+                      .: {}
+                      'f:cpu': {}
+                      'f:memory': {}
+                    'f:requests':
+                      .: {}
+                      'f:cpu': {}
+                      'f:memory': {}
+                  'f:livenessProbe':
+                    .: {}
+                    'f:failureThreshold': {}
+                    'f:httpGet':
+                      .: {}
+                      'f:path': {}
+                      'f:port': {}
+                      'f:scheme': {}
+                    'f:initialDelaySeconds': {}
+                    'f:periodSeconds': {}
+                    'f:successThreshold': {}
+                    'f:timeoutSeconds': {}
+                  'f:env':
+                    .: {}
+                    'k:{"name":"ENV_TOY_SECRET"}':
+                      .: {}
+                      'f:name': {}
+                      'f:valueFrom':
+                        .: {}
+                        'f:secretKeyRef':
+                          .: {}
+                          'f:key': {}
+                          'f:name': {}
+                    'k:{"name":"MICROSERVICE_NAME"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                  'f:terminationMessagePath': {}
+                  'f:imagePullPolicy': {}
+                  'f:ports':
+                    .: {}
+                    'k:{"containerPort":8080,"protocol":"TCP"}':
+                      .: {}
+                      'f:containerPort': {}
+                      'f:name': {}
+                      'f:protocol': {}
+                  'f:name': {}
+              'f:dnsPolicy': {}
+              'f:restartPolicy': {}
+              'f:schedulerName': {}
+              'f:securityContext': {}
+              'f:terminationGracePeriodSeconds': {}
+              'f:volumes':
+                .: {}
+                'k:{"name":"datavol"}':
+                  .: {}
+                  'f:name': {}
+                  'f:persistentVolumeClaim':
+                    .: {}
+                    'f:claimName': {}
+                'k:{"name":"secretvol"}':
+                  .: {}
+                  'f:name': {}
+                  'f:secret':
+                    .: {}
+                    'f:defaultMode': {}
+                    'f:secretName': {}
+    - manager: Mozilla
+      operation: Update
+      apiVersion: apps/v1
+      time: '2021-03-02T13:08:50Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:spec':
+          'f:replicas': {}
+          'f:template':
+            'f:spec':
+              'f:volumes':
+                'k:{"name":"configvol"}':
+                  .: {}
+                  'f:configMap':
+                    .: {}
+                    'f:defaultMode': {}
+                    'f:name': {}
+                  'f:name': {}
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: apps/v1
+      time: '2021-03-02T13:09:00Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:deployment.kubernetes.io/revision': {}
+        'f:status':
+          'f:availableReplicas': {}
+          'f:conditions':
+            .: {}
+            'k:{"type":"Available"}':
+              .: {}
+              'f:lastTransitionTime': {}
+              'f:lastUpdateTime': {}
+              'f:message': {}
+              'f:reason': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Progressing"}':
+              .: {}
+              'f:lastTransitionTime': {}
+              'f:lastUpdateTime': {}
+              'f:message': {}
+              'f:reason': {}
+              'f:status': {}
+              'f:type': {}
+          'f:observedGeneration': {}
+          'f:readyReplicas': {}
+          'f:replicas': {}
+          'f:updatedReplicas': {}
+  namespace: cmstudent6-ostoy
+  labels:
+    app: ostoy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ostoy-frontend
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: ostoy-frontend
+    spec:
+      volumes:
+        - name: configvol
+          configMap:
+            name: ostoy-configmap-files
+            defaultMode: 420
+        - name: secretvol
+          secret:
+            secretName: ostoy-secret
+            defaultMode: 420
+        - name: datavol
+          persistentVolumeClaim:
+            claimName: ostoy-pvc
+      containers:
+        - resources:
+            limits:
+              cpu: 200m
+              memory: 512Mi
+            requests:
+              cpu: 100m
+              memory: 256Mi
+          terminationMessagePath: /dev/termination-log
+          name: ostoy-frontend
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 10
+            timeoutSeconds: 1
+            periodSeconds: 5
+            successThreshold: 1
+            failureThreshold: 3
+          env:
+            - name: ENV_TOY_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: ostoy-secret-env
+                  key: ENV_TOY_SECRET
+            - name: MICROSERVICE_NAME
+              value: OSTOY_MICROSERVICE_SVC
+          ports:
+            - name: ostoy-port
+              containerPort: 8080
+              protocol: TCP
+          imagePullPolicy: IfNotPresent
+          volumeMounts:
+            - name: secretvol
+              mountPath: /var/secret
+            - name: datavol
+              mountPath: /var/demo_files
+          terminationMessagePolicy: File
+          image: 'quay.io/ostoylab/ostoy-frontend:1.4.0'
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+  strategy:
+    type: Recreate
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
+status:
+  observedGeneration: 10
+  replicas: 1
+  updatedReplicas: 1
+  readyReplicas: 1
+  availableReplicas: 1
+  conditions:
+    - type: Progressing
+      status: 'True'
+      lastUpdateTime: '2021-03-02T13:08:12Z'
+      lastTransitionTime: '2021-03-02T11:51:27Z'
+      reason: NewReplicaSetAvailable
+      message: ReplicaSet "ostoy-frontend-76d4765c9c" has successfully progressed.
+    - type: Available
+      status: 'True'
+      lastUpdateTime: '2021-03-02T13:09:00Z'
+      lastTransitionTime: '2021-03-02T13:09:00Z'
+      reason: MinimumReplicasAvailable
+      message: Deployment has minimum availability.
