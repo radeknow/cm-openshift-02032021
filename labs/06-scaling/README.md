@@ -39,9 +39,15 @@ W tym ćwiczeniu wdrożysz testowy projekt ["OSToy"](https://github.com/openshif
 1. Przeczytaj instrukcję i zwiększ zużycie CPU.
 1. Przejdź do OpenShift. Wyświetl _Deployment_ `ostoy-microservice`.
 1. Poczekaj 1 minutę.
-1. Zobacz jak Deployment został zeskalowany automatycznie.
+1. Zobacz jak liczba Pod została zwiększona automatycznie.
 
-## 4. Sprawdź adres IP usługi podając jej nazwę DNS
+## 4. Zaobserwuj działanie _autoscaling_ w przypadku braku wysokiego wykorzystania CPU
+
+1. Przejdź do OpenShift. Wyświetl _Deployment_ `ostoy-microservice`. Możesz zamknąć kartę z aplikacją OSToy.
+1. Poczekaj 2-3 minuty.
+1. Zauważ jak zmieniła się liczba Pod.
+
+## 5. Sprawdź adres IP usługi podając jej nazwę DNS
 
 1. Przejdź do perspektywy Administratora. Wyświetl listę _Services_. Skopiuj nazwę dowolnego _Service_ w tym projekcie.
 1. Przejdź do aplikacji OSToy i wyświetl widok "Networking".
